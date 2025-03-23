@@ -139,8 +139,8 @@ app.get('/api/recordings', async (req, res) => {
       return res.status(400).json({ error: 'Missing coordinates' });
     }
 
-    const latitude = parseFloat(lat);
-    const longitude = parseFloat(lng);
+    const latitude = parseFloat(lat) || 0;
+    const longitude = parseFloat(lng) || 0;
     const searchRadius = parseFloat(radius) || 0.5; // Default 0.5 km (500m)
 
     // Haversine formula for distance calculation
